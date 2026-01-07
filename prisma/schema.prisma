@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  password      String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  userCards     UserCard[]
+}
+
+model CreditCard {
+  id                String   @id @default(cuid())
+  name              String
+  bank              String
+  category          String   // rewards, cashback, fuel, travel, shopping, etc.
+  annualFee         Int
+  joiningFee        Int
+  rewardPoints      String   // Description of reward points system
+  welcomeBenefits   String
+  loungeAccess      String
+  fuelBenefits      String
+  offers            String   @default("")
+  otherBenefits     String
+  eligibility       String
+  imageUrl          String?
+  lastUpdated       DateTime @default(now())
+  userCards         UserCard[]
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model UserCard {
+  id            String      @id @default(cuid())
+  userId        String
+  cardId        String
+  addedAt       DateTime    @default(now())
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  card          CreditCard  @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, cardId])
+}
