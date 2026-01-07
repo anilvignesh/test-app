@@ -25,9 +25,21 @@ Card Genie is a comprehensive web application that helps users find, compare, an
 - **Frontend**: Next.js 14, React, TypeScript
 - **Styling**: Tailwind CSS
 - **Authentication**: NextAuth.js
-- **Database**: SQLite (Prisma ORM)
+- **Database**: PostgreSQL (Prisma ORM)
 - **AI**: OpenAI API (optional), rule-based fallback
 - **Icons**: Lucide React
+
+## 🚀 Quick Deploy (5 minutes)
+
+**Deploy to Vercel for FREE:**
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/anilvignesh/test-app/tree/claude/card-genie-app-Tk9eQ)
+
+📖 **Deployment Guides:**
+- **[QUICK_DEPLOY.md](./QUICK_DEPLOY.md)** - 5-minute visual guide for Vercel
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Comprehensive deployment guide (Vercel, Railway, Render, Netlify)
+
+The app includes free hosting on Vercel with PostgreSQL database. No credit card required!
 
 ## Prerequisites
 
